@@ -58,6 +58,16 @@
       }
 
       async function scanCode() {
+        if (liff.getContext().type !== "none") {
+          await liff.sendMessages([
+            {
+              type: "sticker",
+              packageId: 11538,
+              stickerId: 51626519,
+            },
+          ]);
+          alert("Message sent");
+        }
         const result = await liff.scanCode();
         document.getElementById("scanCode").append(result.value);
       }
